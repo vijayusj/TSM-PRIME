@@ -1,14 +1,10 @@
 'use client';
-import { getList } from '@/app/Actions';
-import Card from '@/components/Card';
-import { CardType } from '@/types';
 import '@/styles/specific_movie_list.scss';
 import Media from '@/components/Media';
 import { useState, useRef, useEffect, memo, useMemo } from 'react';
-import { getGenres, getDataByGenre } from '@/app/Actions';
-import { RiArrowDropDownLine } from 'react-icons/ri';
+import { getGenres } from '@/app/Actions';
 import { FaChevronDown } from 'react-icons/fa';
-// import { URL } from 'next/dist/compiled/@edge-runtime/primitives/url';'
+
 import MediaStore from '@/store/MediaStore';
 type pageType = {
   listType: string;

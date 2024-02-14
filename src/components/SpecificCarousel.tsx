@@ -145,7 +145,7 @@ const Carousel = ({
           <CardLoader wrap={false} backdropCard={backdropCard} />
         )}
         {!hasMore && !media.length && (
-          <h3 className="empty">We don't have enough data to suggest</h3>
+          <h3 className="empty">We don not have enough data to suggest</h3>
         )}
       </div>
     </div>

@@ -1,11 +1,11 @@
 'use client';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import LoadingSpinner from './LoadingSpinner';
 
 import Card from './Card';
 import '@/styles/media.scss';
-import { memo, useRef } from 'react';
+import { memo } from 'react';
 import { useInView } from 'react-intersection-observer';
 import MediaStore from '@/store/MediaStore';
 import { getDataByGenre } from '@/app/Actions';
@@ -13,10 +13,8 @@ import noresults from '../../public/res.png';
 import CardLoader from './CardLoader';
 import SpecificCarousel from './SpecificCarousel';
 import { FaCircleArrowUp } from 'react-icons/fa6';
-const Media = memo(({ search, list }: { search: boolean; list: string }) => {
+const Media = ({ search, list }: { search: boolean; list: string }) => {
   const baseURL = `https://api.themoviedb.org/3/discover/${list}?include_adult=false&include_video=false&language=en-US&`;
-
-  const [loader, setLoader] = useState(true);
 
   const { ref, inView } = useInView({
     // rootMargin: '-10px',
@@ -123,7 +121,7 @@ const Media = memo(({ search, list }: { search: boolean; list: string }) => {
               })}
 
               {hasMore && (
-                <div className={'smallLoader'} ref={ref}>
+                <div className="smallLoader" ref={ref}>
                   <LoadingSpinner />
                 </div>
               )}
@@ -142,7 +140,7 @@ const Media = memo(({ search, list }: { search: boolean; list: string }) => {
                 </div>
               </div>
               <div className="text">
-                We didn't find any matches. Browse our Top Rated & Trending TV
+                We did not find any matches. Browse our Top Rated & Trending TV
                 shows and movies.
               </div>
               <SpecificCarousel
@@ -165,6 +163,6 @@ const Media = memo(({ search, list }: { search: boolean; list: string }) => {
       )}
     </div>
   );
-});
+};
 
-export default Media;
+export default memo(Media);
