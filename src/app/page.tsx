@@ -4,7 +4,6 @@ import Back from '@/components/Back';
 export default function Home() {
   return (
     <div style={{ position: 'relative' }} className="home">
-      {/* <Navbar /> */}
       <Header />
 
       <Back list={'home'} />

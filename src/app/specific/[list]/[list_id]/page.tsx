@@ -18,7 +18,7 @@ import Image from 'next/image';
 //     title: title || name,
 //   };
 // }
-const MoviePage = async ({
+const SpecificMediaPage = async ({
   params: { list, list_id },
   searchParams: { videoId },
 }: {
@@ -164,7 +164,7 @@ const MoviePage = async ({
   );
 };
 
-export default MoviePage;
+export default SpecificMediaPage;
 
 const Aside = ({ det }: any) => {
   // console.log(props);

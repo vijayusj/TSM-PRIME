@@ -19,7 +19,7 @@ type pageType = {
 //   };
 // }
 
-export function Page({ params: { listType } }: { params: pageType }) {
+function ListPage({ params: { listType } }: { params: pageType }) {
   // start
   const list = listType === 'movies' ? 'movie' : 'tv';
 
@@ -285,7 +285,7 @@ export function Page({ params: { listType } }: { params: pageType }) {
   );
 }
 
-export default memo(Page);
+export default memo(ListPage);
 
 const sortbyData = [
   // { value: '', label: 'Default' },
