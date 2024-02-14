@@ -1,10 +1,8 @@
 'use client';
-import { CardType } from '@/types';
 import Image from 'next/image';
 import '@/styles/card.scss';
 import Link from 'next/link';
-import { getDate } from '@/app/utils/helper';
-import { getColorAndRating } from '@/app/utils/helper';
+
 import { useState, memo } from 'react';
 const Card = ({
   data,

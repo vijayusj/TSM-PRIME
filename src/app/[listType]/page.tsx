@@ -1,7 +1,7 @@
 'use client';
 import '@/styles/specific_movie_list.scss';
 import Media from '@/components/Media';
-import { useState, useRef, useEffect, memo, useMemo } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 import { getGenres } from '@/app/Actions';
 import { FaChevronDown } from 'react-icons/fa';
 

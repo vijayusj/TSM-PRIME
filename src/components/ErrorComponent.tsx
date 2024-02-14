@@ -1,6 +1,5 @@
 'use client'; // Error components must be Client Components
 import '@/styles/error.scss';
-import { useEffect } from 'react';
 
 export default function ErrorComponent({
   error,
@@ -9,11 +8,6 @@ export default function ErrorComponent({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    // console.error(error);
-  }, [error]);
-
   return (
     <div className="error_container">
       <h2>Something went wrong!</h2>
