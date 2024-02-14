@@ -1,0 +1,33 @@
+@use 'variables.scss' as *;
+.page_loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .loader {
+    margin: 1rem 0 3rem 0;
+    // position: relative;
+    height: 8rem;
+    width: 8rem;
+    border: 10px solid var(--color-one);
+    border-radius: 50%;
+
+    border-left-color: var(--bg-one);
+    animation: load 0.8s linear infinite;
+    @include mobile-big {
+      height: 6rem;
+      width: 6rem;
+    }
+  }
+
+  @keyframes load {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}

@@ -1,0 +1,151 @@
+@use 'variables' as *;
+.specific_carousel_container {
+  // overflow-x: hidden;
+  // background-color: orange;
+  margin-bottom: 4rem;
+  .carousel_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5%;
+    column-gap: 0.5rem;
+    margin-bottom: 1rem;
+    .opts {
+      border-radius: 4px;
+      padding: 1rem;
+      font-size: 1.9rem;
+      background-color: var(--black);
+      color: var(--white);
+      display: flex;
+      column-gap: 2rem;
+      div {
+        cursor: pointer;
+        border-radius: inherit;
+        padding: 1rem;
+      }
+      .active {
+        background-color: var(--color-one);
+        color: var(--black);
+      }
+    }
+  }
+  .heading {
+    font-size: 2.7rem;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+  .empty {
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--gray);
+  }
+
+  .carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    column-gap: 2rem;
+    padding: 0.8rem;
+    overflow-x: scroll;
+    margin: 0 1rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .last {
+      flex-shrink: 0;
+      width: 15%;
+      min-width: 20rem;
+      .card {
+        width: 100%;
+      }
+    }
+    .last_backdrop {
+      width: 26%;
+      flex-shrink: 0;
+      min-width: 25rem;
+      .backdrop_card {
+        width: 100%;
+      }
+    }
+    .card {
+      box-shadow: none;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+  @include tablet {
+    .carousel_header {
+      .heading {
+        font-size: 2.5rem;
+      }
+      .opts {
+        padding: 0.7rem;
+        font-size: 1.5rem;
+      }
+    }
+    .carousel {
+      .last {
+        min-width: 18rem;
+        width: 25%;
+      }
+      .last_backdrop {
+        width: 28%;
+        min-width: 23rem;
+      }
+    }
+  }
+  @include mobile-big {
+    margin-bottom: 2.5rem;
+
+    .carousel_header {
+      margin-bottom: 0.4rem;
+      padding-right: 3%;
+      .heading {
+        font-size: 2.2rem;
+        padding-left: 0.7rem;
+        margin-bottom: 1rem;
+      }
+      .opts {
+        column-gap: 1.5rem;
+        font-size: 1.4rem;
+      }
+    }
+
+    .empty {
+      font-size: 1.4rem;
+    }
+    .carousel {
+      margin: 0;
+      gap: 1.2rem;
+      .last {
+        min-width: auto;
+        width: 30%;
+      }
+      .last_backdrop {
+        width: 50%;
+        min-width: 21rem;
+      }
+    }
+  }
+  @include mobile-small {
+    margin-bottom: 2rem;
+    .carousel_header {
+      padding-right: 2%;
+      .heading {
+        font-size: 2rem;
+      }
+      .opts {
+        padding: 0.5rem;
+        font-size: 1.3rem;
+        column-gap: 1.1rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+}

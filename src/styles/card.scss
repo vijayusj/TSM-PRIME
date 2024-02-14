@@ -1,0 +1,85 @@
+@use 'variables' as *;
+.card,
+.backdrop_card {
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--card-bg-one);
+  .nav {
+    display: block;
+    height: 100%;
+  }
+  .isLoading {
+    filter: blur(13px) grayscale(35%);
+    transform: scale(1.3);
+  }
+
+  .img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    img {
+      transition: all 0.18s ease-out;
+
+      object-fit: cover;
+      object-position: center 44%;
+    }
+  }
+}
+.card {
+  box-shadow: var(--card-box-shadow);
+
+  width: 15%;
+  flex-shrink: 0;
+  min-width: 20rem;
+  aspect-ratio: 1 / 1.55;
+
+  transition: transform 0.1s ease-in-out;
+
+  &:hover {
+    box-shadow: 7px 10px 15px rgba(104, 249, 1, 0.57),
+      7px -10px 15px rgba(246, 238, 15, 0.547),
+      -7px -10px 10px rgba(238, 246, 15, 0.605),
+      -7px 10px 15px rgba(37, 249, 4, 0.664);
+  }
+
+  @include tablet {
+    min-width: 18rem;
+    width: 25%;
+  }
+  @include mobile-big {
+    min-width: 11rem;
+    width: 30%;
+  }
+  @include mobile-small {
+    min-width: 10rem;
+  }
+}
+.backdrop_card {
+  width: 26%;
+  flex-shrink: 0;
+  min-width: 25rem;
+  aspect-ratio: 16/9;
+  @include tablet {
+    width: 28%;
+    min-width: 23rem;
+  }
+  @include mobile-big {
+    width: 50%;
+    min-width: 21rem;
+  }
+}
+.loading {
+  background: var(--card-bg-sec);
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-position: right bottom;
+  animation: shine 1s infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: top left;
+  }
+}

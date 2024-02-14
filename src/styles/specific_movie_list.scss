@@ -1,0 +1,233 @@
+@use 'variables' as *;
+.specific_list {
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 0 2rem;
+  // overflow-x: hidden;
+  @include mobile-big {
+    padding: 0 1rem;
+  }
+  @include mobile-small {
+    padding: 0;
+    .header {
+      padding: 0 1rem;
+    }
+    .list_container {
+      padding: 1.7rem 0.3rem;
+    }
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    justify-content: space-between;
+    color: var(--white);
+    flex-wrap: wrap;
+    min-height: 26rem;
+    gap: 3rem;
+    transition: height 0.5s ease;
+    .heading {
+      font-size: 3rem;
+      text-shadow: 0px 0px 3px var(--color-one);
+    }
+    .filters {
+      flex-grow: 1;
+
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      .select_1 {
+        flex-grow: 1;
+        width: 38rem;
+
+        .left {
+          flex-grow: 1;
+        }
+        .right {
+          margin-left: 1rem;
+          align-self: stretch;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .selected_items {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+          .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            overflow-y: scroll;
+            max-height: 8rem;
+            &::-webkit-scrollbar {
+              display: none;
+              width: 0;
+            }
+            .selected {
+              background-color: var(--green);
+              font-size: 1.4rem;
+              padding: 0.4rem 0.7rem;
+              border-radius: 4px;
+              color: var(--black);
+              span {
+                cursor: pointer;
+                color: var(--red);
+                font-weight: 500;
+                margin-left: 0.5rem;
+              }
+            }
+          }
+          .close_all {
+            cursor: pointer;
+            align-self: stretch;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            font-size: 2.3rem;
+            font-weight: 500;
+            color: var(--red);
+          }
+        }
+      }
+      .select_2 {
+        width: 30rem;
+        .selector {
+          .selected {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            .left {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            .right {
+              cursor: pointer;
+              margin-left: 0.8rem;
+              font-weight: 600;
+              color: red;
+            }
+          }
+        }
+        .opts {
+          .active {
+            background-color: rgb(0, 0, 0) !important;
+            color: white;
+          }
+        }
+      }
+      .select_1,
+      .select_2 {
+        font-size: 1.5rem;
+        position: relative;
+        display: block;
+        .selector {
+          box-shadow: inset 0px 0px 6px 1px var(--color-one);
+          padding: 1rem 1rem;
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .icon {
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+            position: relative;
+            padding: 0 1rem;
+          }
+          .active {
+            transform: rotateX(180deg);
+            color: rgb(0, 253, 89);
+          }
+        }
+
+        .opts {
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          z-index: 10;
+          // align-self: stretch;
+          background-color: var(--color-one);
+          color: black;
+          width: 100%;
+
+          display: block;
+          position: absolute;
+
+          max-height: 40rem;
+          margin-top: 1rem;
+          animation: opts 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          padding: 1rem 0.5rem;
+          overflow-y: scroll;
+          li {
+            cursor: pointer;
+
+            padding: 1rem;
+
+            &:hover {
+              background-color: rgba(62, 61, 61, 0.874);
+              color: white;
+            }
+          }
+        }
+      }
+
+      @keyframes opts {
+        from {
+          transform: translateY(2rem);
+        }
+        to {
+          transform: translateY(0rem);
+        }
+      }
+    }
+    @include tablet {
+      padding-top: 6rem;
+      padding-bottom: 2rem;
+      min-height: 0;
+      gap: 5rem;
+      .filters {
+        .select_2 {
+          flex-grow: 1;
+          width: 25rem;
+        }
+      }
+    }
+    @include mobile-big {
+      gap: 3rem;
+      padding-top: 4rem;
+      .heading {
+        font-size: 2.6rem;
+      }
+      .filters {
+        .select_1,
+        .select_2 {
+          flex-grow: 0;
+          flex-basis: 100%;
+          width: 26rem;
+          .opts {
+            max-height: 32rem;
+          }
+        }
+        .select_1 {
+          .selected_items {
+            gap: 0.5rem;
+            .wrapper {
+              .selected {
+                font-size: 1.3rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

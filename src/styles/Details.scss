@@ -1,0 +1,79 @@
+@use 'variables.scss' as *;
+.media_container {
+  padding-bottom: 0.2rem;
+}
+.second {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  margin: 4rem 1rem;
+  .status {
+    align-self: stretch;
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    div {
+      text-transform: capitalize;
+    }
+    div > div {
+      font-size: 1.7rem;
+      width: auto;
+
+      & + p {
+        color: rgb(166, 162, 162);
+        margin-top: 0.5rem;
+        font-size: 1.4rem;
+      }
+    }
+    .logo {
+      .img {
+        margin-top: 0.5rem;
+        background-color: rgba(79, 79, 78, 0.775);
+        height: 4rem;
+        width: 9rem;
+        position: relative;
+
+        img {
+          padding: 0.5rem 1rem;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+  @include desktop {
+    gap: 2rem;
+  }
+  @include tablet {
+    margin: 3rem 0rem;
+    flex-direction: column;
+    .status {
+      padding: 0 0.5rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      div {
+        flex-grow: 1;
+        width: 43%;
+      }
+    }
+  }
+  @include mobile-big {
+    .status {
+      gap: 1rem;
+      div > div {
+        font-size: 1.4rem;
+        & + p {
+          font-size: 1.2rem;
+        }
+      }
+      .logo {
+        .img {
+          height: 3rem;
+          width: 7rem;
+        }
+      }
+    }
+  }
+}

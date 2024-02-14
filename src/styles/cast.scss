@@ -1,0 +1,100 @@
+@use 'variables.scss' as *;
+.cast_container {
+  display: flex;
+  column-gap: 2rem;
+  overflow-x: scroll;
+
+  height: auto;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
+
+  width: 75%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cast_element {
+    border-radius: 3px;
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    height: 24rem;
+    width: 13rem;
+
+    box-shadow: 3px 3px 8px var(--color-one);
+
+    .profile {
+      aspect-ratio: 1/1.2;
+      width: 100%;
+      position: relative;
+      img {
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+    .details {
+      // height: auto;
+      margin-top: 0.9rem;
+      padding-left: 0.3rem;
+
+      height: fit-content;
+      overflow: hidden;
+      .name {
+        overflow-wrap: break-word;
+
+        font-size: 1.4rem;
+        // font-weight: 500;
+        margin-bottom: 0.4rem;
+      }
+      .role {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  @include desktop {
+    .cast_element {
+      height: 22rem;
+      width: 12rem;
+    }
+  }
+
+  @include tablet {
+    width: 100%;
+    .details {
+      margin-top: 0.5rem;
+
+      .name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      .role {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  @include mobile-big {
+    padding-left: 1rem;
+    .cast_element {
+      height: 18rem;
+      width: 10rem;
+      .details {
+        .name {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+  @include mobile-small {
+    column-gap: 1.4rem;
+    .cast_element {
+      height: 16rem;
+      width: 9rem;
+    }
+  }
+}
